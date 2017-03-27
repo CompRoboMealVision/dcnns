@@ -1,5 +1,4 @@
-# dcnns
-Deep convolutional neural net scripts
+# Deep convolutional neural nets for food detection
 
 ## Setup
 
