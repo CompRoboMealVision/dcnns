@@ -34,12 +34,14 @@ def label_image(image_path):
             # Sort to show labels of first prediction in order of confidence
             top_k = predictions[0].argsort()[-len(predictions[0]):][::-1]
 
-            for node_id in top_k:
-                human_string = label_lines[node_id]
-                score = predictions[0][node_id]
-                print('%s (score = %.5f)' % (human_string, score))
+            guesses = {label_lines[node_id]: predictions[0][node_id] for node_id in top_k}
+            
+            return guesses
+
 
 if __name__ == '__main__':
     # change this as you see fit
     image_path = sys.argv[1]
-    label_image(image_path)
+    guesses = label_image(image_path)
+    for human_string, score in guesses.iteritems():
+        print('%s (score = %.5f)' % (human_string, score))
