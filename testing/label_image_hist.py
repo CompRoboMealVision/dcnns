@@ -21,6 +21,6 @@ def plot_bar_graph(labels, scores, bins):
 if __name__ == '__main__':
     # change this as you see fit
     image_path = sys.argv[1]
-    labels = setup()
-    labels, scores = label_image(image_path, labels)
+    human_strings = setup()
+    labels, scores = label_image(image_path, human_strings)
     plot_bar_graph(labels, scores, 5)
